@@ -37,10 +37,10 @@ PETUNJUK:
 3. query di table "admindb", buat user baru dengan level [admin] atau [operator]
 4. copy/update folder "apps/plugins" dan "apps/dist". ambil dari AdminLte ver.3.1 
 5. edit file "config/config.php", ganti informasi untuk koneksi ke mysql nya
-6. didalam file (terutama folder "apps/manage" masih banyak manual-query.. belum sempat di bersihkan, jadi bisa di update sesuai info point 5
+6. didalam file (terutama folder "apps/manage" masih banyak manual-query.. belum sempat di bersihkan, jadi bisa di update sesuai info point diatas
 
 credit : (belajarnya di mari)
-Herianto Saputra (youtube)
-petanikode.com
-malasngoding.com
-www.fusioncharts.com
+> Herianto Saputra (youtube)
+> petanikode.com
+> malasngoding.com
+> www.fusioncharts.com
