@@ -11,4 +11,10 @@ Family Records
 ![image](https://user-images.githubusercontent.com/9815234/183062760-62ec4c18-d459-4fdf-bde8-4eb7ffc19a39.png)
 
 
-.... still uploading.
+GUIDES:
+1. Copy to web-server folder
+2. create new DB then import from cms_db_empty.sql
+3. create new admin user on admindb table. User level is [admin] or [operator]
+4. edit "conf/config.php --> sql connection
+5. many SQL queries are scatered on phps file, if you got error, check the related file for SQL query command, and change user/pass for connection
+
