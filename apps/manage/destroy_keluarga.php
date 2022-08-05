@@ -1,15 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Rahasia123";
-$dbname = "cms_db";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+include('../../conf/config.php');
 
 $id_kel = $_GET['id_kel'];
 
@@ -22,10 +12,10 @@ $id_kel = $_GET['id_kel'];
 
 $sql = "DELETE FROM tbl_keluarga WHERE id_kel='$id_kel'";
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($koneksi, $sql)) {
     header('Location: ../index.php?page=keluarga');
 } else {
     header('Location: ../index.php?page=errpage');
 }
 
-mysqli_close($conn);
+mysqli_close($koneksi);
