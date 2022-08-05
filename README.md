@@ -1,5 +1,5 @@
 # mahanaim
-Database for Church Based on PHP-MYSQL-AdminLTE 
+Database for Church Based on PHP-MYSQL-AdminLTE - System Database Gereja 
 
 Preview (Dashboard- guest+admin)
 ![dashboard](https://user-images.githubusercontent.com/9815234/183091313-94b5e54b-bb60-4fe0-81a2-42570dbd8a52.png)
