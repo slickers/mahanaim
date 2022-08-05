@@ -29,7 +29,6 @@ GUIDES:
 3. query > create new admin user on admindb table. User level is [admin] or [operator]
 4. update/copy "PLUGINS" and "DIST" folder from AdminLte 3.1 to "APPS" folder.
 5. edit "conf/config.php --> sql connection
-6. many SQL queries are scatered on phps file, if you got error, check the related file for SQL query command, and change user/pass for connection
 
 PETUNJUK:
 1. Copy ke folder htdoc / web server
@@ -37,7 +36,6 @@ PETUNJUK:
 3. query di table "admindb", buat user baru dengan level [admin] atau [operator]
 4. copy/update folder "apps/plugins" dan "apps/dist". ambil dari AdminLte ver.3.1 
 5. edit file "config/config.php", ganti informasi untuk koneksi ke mysql nya
-6. didalam file (terutama folder "apps/manage" masih banyak manual-query.. belum sempat di bersihkan, jadi bisa di update sesuai info point diatas
 
 credit : (belajarnya di mari)<br>
 Herianto Saputra (youtube)<br>petanikode.com<br>malasngoding.com<br>www.fusioncharts.com
