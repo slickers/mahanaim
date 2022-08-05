@@ -40,7 +40,4 @@ PETUNJUK:
 6. didalam file (terutama folder "apps/manage" masih banyak manual-query.. belum sempat di bersihkan, jadi bisa di update sesuai info point diatas
 
 credit : (belajarnya di mari)
-> Herianto Saputra (youtube)
-> petanikode.com
-> malasngoding.com
-> www.fusioncharts.com
+Herianto Saputra (youtube)<br>petanikode.com<br>malasngoding.com<br>www.fusioncharts.com
