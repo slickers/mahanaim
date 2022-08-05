@@ -1,17 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Rahasia123";
-$dbname = "cms_db";
+include('../../conf/config.php');
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-//the SQL query to be executed
 $query = "SELECT 
             CASE 
                 WHEN umur <= 5 THEN 'balita' 
@@ -28,7 +17,7 @@ $query = "SELECT
             ORDER BY kelompok;
             ";
 //storing the result of the executed query
-$result = $conn->query($query);
+$result = $koneksi->query($query);
 
 //initialize the array to store the processed data
 $jsonArray = array();
@@ -45,7 +34,7 @@ if ($result->num_rows > 0) {
 }
 
 //Closing the connection to DB
-$conn->close();
+$koneksi->close();
 //set the response content type as JSON
 header('Content-type: application/json');
 //output the return value of json encode using the echo function.
