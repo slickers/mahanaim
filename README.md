@@ -25,7 +25,7 @@ Administrator Page (add-edit-delete)
 FEATURES:
 1. Live Chart based on age-group (baby-children-teens-young-grownups-olderpeople)
 2. Show Active-People, Active-Family and other on dashboard
-3. Birthday (curent's month) and death record (curent's year)
+3. Birthday (curent month) and death record (curent year)
 3. Sort peoples by range age
 4. With SQL-Trigger, move deleted data to other tables
 5. Different admin rights
