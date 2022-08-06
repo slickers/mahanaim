@@ -1,5 +1,5 @@
 # mahanaim
-Database for Church Based on PHP-MYSQL-AdminLTE - System Database Gereja 
+Database for Church Based on PHP-MYSQL-AdminLTE 3.2 - System Database Gereja 
 
 Preview (Dashboard- guest+admin)
 ![dashboard](https://user-images.githubusercontent.com/9815234/183091313-94b5e54b-bb60-4fe0-81a2-42570dbd8a52.png)
@@ -39,14 +39,14 @@ GUIDES:
 1. Copy to web-server folder
 2. create new DB then import from cms_db_empty.sql
 3. query > create new admin user on admindb table. User level is [admin] or [operator]
-4. update/copy "PLUGINS" and "DIST" folder from AdminLte 3.1 to "APPS" folder.
+4. update/copy "PLUGINS" and "DIST" folder from AdminLte 3.2 to "APPS" folder.
 5. edit "conf/config.php --> sql connection
 
 PETUNJUK:
 1. Copy ke folder htdoc / web server
 2. Buka mysql > db bar, lalu import file cms_db_empty.sql
 3. query di table "admindb", buat user baru dengan level [admin] atau [operator]
-4. copy/update folder "apps/plugins" dan "apps/dist". ambil dari AdminLte ver.3.1 
+4. copy/update folder "apps/plugins" dan "apps/dist". ambil dari AdminLte ver.3.2 
 5. edit file "config/config.php", ganti informasi untuk koneksi ke mysql nya
 
 credit : (belajarnya di mari)<br>
