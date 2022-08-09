@@ -9,6 +9,7 @@ if (mysqli_num_rows($query) == 1) {
     header('Location: ../apps');
     $user = mysqli_fetch_array($query);
     $_SESSION['nama_adm'] = $user['nama_adm'];
+    $_SESSION['id_adm'] = $user['id_adm'];
     $_SESSION['level'] = $user['level'];
 } else {
     header('Location: ../login.php?error=1');
