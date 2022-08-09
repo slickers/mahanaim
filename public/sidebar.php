@@ -3,7 +3,7 @@
       <!-- Brand Logo -->
       <a href="viewonly.php" class="brand-link">
           <img src="apps/dist/img/mahanaim.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">mahanaim|CMS</span>
+          <span class="brand-text font-weight-light">GMIST Mahanaim</span>
       </a>
 
       <!-- Sidebar -->

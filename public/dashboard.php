@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">CMS | Mahanaim</h1>
+                    <h1 class="m-0">System Database Gereja</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-2 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-dark">
                         <div class="inner">
                             <h3 style="font-size:60px;" class='text-center'><?php echo $results['jmt_aktif']; ?></h3>
                         </div>
@@ -30,7 +30,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-dark">
                         <div class="inner">
                             <h3 style="font-size:60px;" class='text-center'><?php echo $results['kel_aktif']; ?></h3>
                         </div>
@@ -40,7 +40,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg-dark">
                         <div class="inner">
                             <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_pendeta']; ?></h3>
                         </div>
@@ -50,7 +50,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-dark">
                         <div class="inner">
                             <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_majelis']; ?></h3>
                         </div>
@@ -70,7 +70,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-light">
+                    <div class="small-box bg-dark">
                         <div class="inner">
                             <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_wanita']; ?></h3>
                         </div>
@@ -105,7 +105,7 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $jmt['nama']; ?></td>
-                                            <td><?php echo $jmt['tglahir']; ?></td>
+                                            <td><?php echo $jmt['tglahir'] ? date("d M Y", strtotime($jmt['tglahir'])) : '' ?></td>
                                             <td><?php echo $jmt['usia']; ?></td>
                                             <td><?php echo $jmt['gender']; ?></td>
                                             <td><?php echo $jmt['keluarga']; ?></td>
@@ -145,7 +145,7 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $kel['nama_kel']; ?></td>
-                                            <td><?php echo $kel['tglnikah']; ?></td>
+                                            <td><?php echo $kel['tglnikah'] ? date("d M Y", strtotime($kel['tglnikah'])) : '' ?></td>
                                             <td><?php echo $kel['kwp']; ?></td>
                                         </tr>
                                     <?php } ?>
@@ -177,7 +177,7 @@
                         <div class="card-body">
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
-                                <div id="chart-container" width="100%">FusionCharts will render here</div>
+                                <canvas id="rasio"></canvas>
                             </div>
                         </div><!-- /.card-body -->
                     </div>
@@ -207,8 +207,8 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $jmt['nama']; ?></td>
-                                            <td><?php echo $jmt['tglahir']; ?></td>
-                                            <td><?php echo $jmt['tglmeninggal']; ?></td>
+                                            <td><?php echo $jmt['tglahir'] ? date("d M Y", strtotime($jmt['tglahir'])) : '' ?></td>
+                                            <td><?php echo $jmt['tglmeninggal'] ? date("d M Y", strtotime($jmt['tglmeninggal'])) : '' ?></td>
                                             <td><?php echo $jmt['usia']; ?></td>
                                             <td><?php echo $jmt['gender']; ?></td>
                                             <td><?php echo $jmt['keluarga']; ?></td>

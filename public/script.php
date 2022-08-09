@@ -30,11 +30,6 @@
     <script src="apps/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- AdminLTE App -->
     <script src="apps/dist/js/adminlte.js"></script>
-    <!-- for chart -->
-    <script src="apps/dist/js/public_chart.js"></script>
-    <script src="apps/plugins/fusionchart/fusioncharts.js"></script>
-    <script src="apps/plugins/fusionchart/fusioncharts.charts.js"></script>
-    <script src="apps/plugins/fusionchart/themes/fusioncharts.theme.zune.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="apps/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="apps/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -55,7 +50,7 @@
                 "lengthChange": false,
                 "autoWidth": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)')
             $('#example2').DataTable({
                 "paging": true,
                 "lengthChange": false,
@@ -91,6 +86,59 @@
             // Event listener to the two range filtering inputs to redraw on input
             $('#min, #max').keyup(function() {
                 table.draw();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "apps/pages/chart_data.php",
+                method: "GET",
+                success: function(data) {
+                    console.log(data);
+                    var label = [];
+                    var value = [];
+                    for (var i in data) {
+                        label.push(data[i].label);
+                        value.push(data[i].value);
+                    }
+                    var ctx = document.getElementById('rasio').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        theme: "dark",
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'Rasio Usia',
+                                // backgroundColor: [
+                                //     getRandomColorHex(),
+                                //     getRandomColorHex(),
+                                //     getRandomColorHex(),
+                                //     getRandomColorHex(),
+                                //     getRandomColorHex(),
+                                //     getRandomColorHex()
+                                // ],
+                                backgroundColor: 'red',
+                                borderColor: 'rgb(255, 255, 255)',
+                                data: value
+                            }]
+                        },
+                        options: {}
+
+                    });
+                    /**
+                     * function to generate random color in hex form
+                     */
+                    function getRandomColorHex() {
+                        var hex = "0123456789ABCDEF",
+                            color = "#";
+                        for (var i = 1; i <= 6; i++) {
+                            color += hex[Math.floor(Math.random() * 16)];
+                        }
+                        return color;
+                    }
+
+                }
             });
         });
     </script>
