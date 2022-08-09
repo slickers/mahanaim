@@ -22,7 +22,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['jmt_aktif']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data1['total_jmt']; ?></h3>
                         </div>
                         <a href="index.php?page=jemaat" class="small-box-footer">Jumlah Jemaat Aktif</a>
                     </div>
@@ -32,7 +32,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['kel_aktif']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data2['total_kel']; ?></h3>
                         </div>
                         <a href="index.php?page=keluarga" class="small-box-footer">Jumlah Keluarga Aktif</a>
                     </div>
@@ -42,7 +42,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_pendeta']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data3['total_pdt']; ?></h3>
                         </div>
                         <a href="index.php?page=pendeta" class="small-box-footer">Jumlah Pendeta</a>
                     </div>
@@ -52,7 +52,7 @@
                     <!-- small box -->
                     <div class="small-box bg-purple">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_majelis']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data4['total_mj']; ?></h3>
                         </div>
                         <a href="index.php?page=majelis" class="small-box-footer">Jumlah Majelis</a>
                     </div>
@@ -62,7 +62,7 @@
                     <!-- small box -->
                     <div class="small-box bg-indigo">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_pria']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data5['total_pria']; ?></h3>
                         </div>
                         <a href="#" class="small-box-footer">Jumlah Jemaat Pria</a>
                     </div>
@@ -72,21 +72,21 @@
                     <!-- small box -->
                     <div class="small-box bg-fuchsia">
                         <div class="inner">
-                            <h3 style="font-size:60px;" class='text-center'><?php echo $results['total_wanita']; ?></h3>
+                            <h3 style="font-size:60px;" class='text-center'><?php echo $data6['total_wanita']; ?></h3>
                         </div>
                         <a href="#" class="small-box-footer">Jumlah Jemaat Wanita</a>
                     </div>
                 </div>
                 <!-- ./col -->
 
-                <div class="col-7">
+                <section class="col-7">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><b>HUT Jemaat</b></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
@@ -100,13 +100,13 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT *, tbl_keluarga.kwp, TIMESTAMPDIFF(YEAR, tbl_jemaat.tglahir, CURDATE()) AS usia FROM tbl_jemaat INNER JOIN tbl_keluarga ON tbl_jemaat.keluarga=tbl_keluarga.nama_kel WHERE MONTH(tglahir) = MONTH(CURDATE());");
+                                    $query = mysqli_query($koneksi, "SELECT  *, TIMESTAMPDIFF(YEAR, tglahir, CURDATE()) AS usia1 FROM tbl_jemaat WHERE MONTH(tglahir) = MONTH(CURDATE());");
                                     while ($jmt = mysqli_fetch_array($query)) {
                                     ?>
                                         <tr>
                                             <td><?php echo $jmt['nama']; ?></td>
-                                            <td><?php echo $jmt['tglahir'] ? date("d M Y", strtotime($jmt['tglahir'])) : '' ?></td>
-                                            <td><?php echo $jmt['usia']; ?></td>
+                                            <td><?php echo $jmt['tglahir']; ?></td>
+                                            <td><?php echo $jmt['usia1']; ?></td>
                                             <td><?php echo $jmt['gender']; ?></td>
                                             <td><?php echo $jmt['keluarga']; ?></td>
                                             <td><?php echo $jmt['kwp']; ?></td>
@@ -120,14 +120,17 @@
                         </div>
                         <!-- /.card-body -->
                     </div>
-
+                    <!-- /.card -->
+                    <!-- /.col -->
+                    <!-- /.row -->
+                    <!-- /.container-fluid -->
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title"><b>HUT Pernikahan</b></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                            <table id="example1" class="table table-bordered table-striped" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Nama Keluarga</th>
@@ -142,7 +145,7 @@
                                     ?>
                                         <tr>
                                             <td><?php echo $kel['nama_kel']; ?></td>
-                                            <td><?php echo $kel['tglnikah'] ? date("d M Y", strtotime($kel['tglnikah'])) : '' ?></td>
+                                            <td><?php echo $kel['tglnikah']; ?></td>
                                             <td><?php echo $kel['kwp']; ?></td>
                                         </tr>
                                     <?php } ?>
@@ -157,8 +160,8 @@
                     <!-- /.col -->
                     <!-- /.row -->
                     <!-- /.container-fluid -->
-                </div>
-                <div class="col-5">
+                </section>
+                <section class="col-5">
                     <!-- Custom tabs (Charts with tabs)-->
                     <div class="card">
                         <div class="card-header">
@@ -174,8 +177,7 @@
                         <div class="card-body">
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
-                                <!-- <div id="chart-container" width="100%">FusionCharts will render here</div> -->
-                                <canvas id="rasio"></canvas>
+                                <div id="chart-container" width="100%">FusionCharts will render here</div>
                             </div>
                         </div><!-- /.card-body -->
                     </div>
@@ -185,7 +187,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example3" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                            <table id="example1" class="table table-bordered table-striped" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
@@ -200,13 +202,13 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT *, tbl_keluarga.alamat, tbl_keluarga.kwp, TIMESTAMPDIFF(YEAR, tbl_jemaat.tglahir, CURDATE()) AS usia FROM tbl_jemaat INNER JOIN tbl_keluarga ON tbl_jemaat.keluarga=tbl_keluarga.nama_kel WHERE YEAR(tglmeninggal) = YEAR(CURDATE())  ");
+                                    $query = mysqli_query($koneksi, "SELECT *, TIMESTAMPDIFF(YEAR,tglahir,tglmeninggal) AS usia FROM tbl_jemaat WHERE YEAR(tglmeninggal) = YEAR(CURDATE())  ");
                                     while ($jmt = mysqli_fetch_array($query)) {
                                     ?>
                                         <tr>
                                             <td><?php echo $jmt['nama']; ?></td>
-                                            <td><?php echo $jmt['tglahir'] ? date("d M Y", strtotime($jmt['tglahir'])) : '' ?></td>
-                                            <td><?php echo $jmt['tglmeninggal'] ? date("d M Y", strtotime($jmt['tglmeninggal'])) : '' ?></td>
+                                            <td><?php echo $jmt['tglahir']; ?></td>
+                                            <td><?php echo $jmt['tglmeninggal']; ?></td>
                                             <td><?php echo $jmt['usia']; ?></td>
                                             <td><?php echo $jmt['gender']; ?></td>
                                             <td><?php echo $jmt['keluarga']; ?></td>
@@ -219,9 +221,17 @@
                                 </tfoot>
                             </table>
                         </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            Footer
+                        </div>
                     </div>
-                </div>
+
+                    <!-- /.card-footer-->
             </div>
-        </div>
     </section>
+    <!-- /.Left col -->
+    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+    <!-- right col -->
 </div>
+<!-- /.row (main row) -->

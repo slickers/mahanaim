@@ -25,29 +25,29 @@
                            </li>
                            <li class="nav-item">
                                <a href="index.php?page=jemaat" class="nav-link">
-                                   <i class="far fa-circle nav-icon"></i>
-                                   <p>Data Jemaat</p>
+                                   <i class="fas fa-user nav-icon text-light"></i>
+                                   <p class="text-light">Data Jemaat</p>
                                </a>
                            </li>
                            <li class="nav-item">
                                <a href="index.php?page=keluarga" class="nav-link">
-                                   <i class="far fa-circle nav-icon"></i>
-                                   <p>Data Keluarga</p>
+                                   <i class="fas fa-home nav-icon text-light"></i>
+                                   <p class="text-light">Data Keluarga</p>
                                </a>
                            </li>
                            <li class="nav-item">
                                <a href="index.php?page=pendeta" class="nav-link">
-                                   <i class="far fa-circle nav-icon"></i>
-                                   <p>Data Pendeta</p>
+                                   <i class="fas fa-praying-hands nav-icon text-light"></i>
+                                   <p class="text-light">Data Pendeta</p>
                                </a>
                            </li>
                            <li class="nav-item">
                                <a href="index.php?page=majelis" class="nav-link">
-                                   <i class="far fa-circle nav-icon"></i>
-                                   <p>Data Majelis</p>
+                                   <i class="fas fa-users nav-icon text-light"></i>
+                                   <p class="text-light">Data Majelis</p>
                                </a>
                            </li>
-                           </li>
+                           <hr>
                            <li class="nav-item">
                                <a href="" class="nav-link">
                                    <i class="nav-icon fas fa-copy"></i>
@@ -100,12 +100,12 @@
                                        </a>
                                    </li> -->
                                </ul>
-                           <li class="nav-item" style="background-color: maroon" ;>
+                               <!-- <li class="nav-item" style="background-color: maroon" ;>
                                <a href="logout.php" class="nav-link">
                                    <i class="nav-icon fas fa-power-off text-light"></i>
                                    <p class="text-light">Log Out</p>
                                </a>
-                           </li>
+                           </li> -->
                        </ul>
                    </nav>
                    <!-- /.sidebar-menu -->

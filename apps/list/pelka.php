@@ -4,5 +4,5 @@
 <option value="Pelka Bapak">Pelka Bapak</option>
 <option value="Pelka Ibu">Pelka Ibu</option>
 <option value="Pelka Ibu Janda">Pelka Ibu Janda</option>
-<option value="Pelka Pelaut">Pelka Profesional</option>
+<option value="Pelka Profesional">Pelka Profesional</option>
 <option value="Pelka Manula">Pelka Lansia</option>

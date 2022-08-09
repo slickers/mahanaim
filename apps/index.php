@@ -5,8 +5,12 @@ session_start();
 if (!$_SESSION['nama_adm']) {
   header('Location: ../index.php?session-expired');
 }
-include('pages/header.php') ?>;
-<?php include('../conf/config.php') ?>;
+include('pages/header.php') ?>
+<?php
+include('../conf/config.php');
+$user = $_SESSION['nama_adm'];
+$userlvl = $_SESSION['level']
+?>
 
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -39,8 +43,8 @@ include('pages/header.php') ?>;
         include('manage/edit_kematian.php');
       } else if ($_GET['page'] == 'adminpage') {
         include('pages/adminpage.php');
-      } else if ($_GET['page'] == 'edit-list') {
-        include('manage/edit-list.php');
+      } else if ($_GET['page'] == 'kartu') {
+        include('pages/kartu.php');
       } else if ($_GET['page'] == 'errpage') {
         include('pages/errpage.php');
       } else {

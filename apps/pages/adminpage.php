@@ -28,6 +28,7 @@
                                     <tr>
                                         <th>Nama</th>
                                         <th>Username</th>
+                                        <th>Level</th>
                                         <th>Keterangan</th>
                                         <th>Action</th>
                                     </tr>
@@ -42,6 +43,7 @@
                                         <tr>
                                             <td><?php echo $user['nama_adm']; ?></td>
                                             <td><?php echo $user['username']; ?></td>
+                                            <td><?php echo $user['level']; ?></td>
                                             <td><?php echo $user['keterangan']; ?></td>
                                             <td><a onclick="destroy_data(<?php echo $user['id_adm']; ?>)" class="btn btn-sm btn-danger">Hapus</a></td>
                                         </tr>

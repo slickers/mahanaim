@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">CMS | Mahanaim</h1>
+          <h1 class="m-0">Database Keluarga</h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -17,7 +17,6 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"><b>Database Keluarga</b></h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -50,7 +49,7 @@
                         <td><?php echo $kel['nama_kel']; ?></td>
                         <td><?php echo $kel['kwp']; ?></td>
                         <td><?php echo $kel['kepala']; ?></td>
-                        <td><?php echo $kel['tglnikah']; ?></td>
+                        <td><?php echo $kel['tglnikah'] ? date("d M Y", strtotime($kel['tglnikah'])) : '' ?></td>
                         <td><?php echo $kel['alamat']; ?></td>
                         <td><?php echo $kel['propinsi']; ?></td>
                         <td><?php echo $kel['kodepos']; ?></td>

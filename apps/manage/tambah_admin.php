@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['nama_adm'])) {
+    // jika user belum login
+    header('Location: ../login');
+    exit();
+}
+
 include('../../conf/config.php');
 
 $nama_adm = $_GET['nama_adm'];
@@ -13,12 +20,6 @@ VALUES ('$nama_adm','$username','$password','$level', '$keterangan')";
 if (mysqli_query($koneksi, $sql)) {
     header('Location: ../index.php?page=adminpage');
 } else {
-    // echo $nama;
-    // echo $username;
-    // echo $password;
-    // echo $level;
-    // echo $keterangan;
-
     header('Location: ../index.php?page=errpage');
 }
 

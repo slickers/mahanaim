@@ -20,9 +20,7 @@ $view = mysqli_fetch_array($query);
     <?php
     $query_fams = "SELECT * FROM `tbl_keluarga`";
     $result_fams = mysqli_query($koneksi, $query_fams);
-
     $ls_family = "";
-
     while ($row_fams = mysqli_fetch_array($result_fams)) {
         $ls_family = $ls_family . "<option>$row_fams[1]</option>";
     }
@@ -47,21 +45,18 @@ $view = mysqli_fetch_array($query);
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <!-- text input -->
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
                                     <input type="text" class="form-control" name="tplahir" value="<?php echo $view['tplahir']; ?>">
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <!-- text input -->
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
-                                    <input type="text" class="form-control" name="tglahir" value="<?php echo $view['tglahir']; ?>">
+                                    <input type="text" class="form-control" name="tglahir" value="<?php echo $view['tglahir']; ?>" placeholder="YYYY-mm-dd">
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <!-- select -->
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <select class="form-control" name="gender">
@@ -73,8 +68,7 @@ $view = mysqli_fetch_array($query);
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">
-                                <!-- select -->
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label>Golongan Darah</label>
                                     <select class="form-control" name="goldarah">
@@ -83,7 +77,13 @@ $view = mysqli_fetch_array($query);
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="text" class="form-control" name="mobile" value="<?php echo $view['mobile']; ?>" placeholder="081x-xxxx-xxxx">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Pendidikan</label>
@@ -93,7 +93,7 @@ $view = mysqli_fetch_array($query);
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Pekerjaan</label>
@@ -141,7 +141,7 @@ $view = mysqli_fetch_array($query);
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Tanggal Baptis</label>
-                                    <input type="text" class="form-control" name="tglbaptis" value="<?php echo $view['tglbaptis']; ?>">
+                                    <input type="text" class="form-control" name="tglbaptis" value="<?php echo $view['tglbaptis']; ?>" placeholder="YYYY-mm-dd">
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -155,7 +155,7 @@ $view = mysqli_fetch_array($query);
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Tanggal Sidi</label>
-                                    <input type="text" class="form-control" name="tglsidi" value="<?php echo $view['tglsidi']; ?>">
+                                    <input type="text" class="form-control" name="tglsidi" value="<?php echo $view['tglsidi']; ?>" placeholder="YYYY-mm-dd">
                                 </div>
                             </div>
                             <div class="col-sm-3">

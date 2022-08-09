@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">CMS | Mahanaim</h1>
+          <h1 class="m-0">Database Jemaat</h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -16,9 +16,6 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title"><b>Database Jemaat</b></h3>
-            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -40,7 +37,7 @@
                     <th>Tgl Baptis</th>
                     <th>Tempat Sidi</th>
                     <th>Tgl Sidi</th>
-                    <th>Pernikahan</th>
+                    <th>Status Pernikahan</th>
                     <th>KWP</th>
                     <th>Pelka</th>
                     <th>Status</th>
@@ -59,7 +56,7 @@
                       <td><?php echo $no; ?></td>
                       <td><?php echo $jmt['nama']; ?></td>
                       <td><?php echo $jmt['tplahir']; ?></td>
-                      <td><?php echo $jmt['tglahir']; ?></td>
+                      <td><?php echo $jmt['tglahir'] ? date("d M Y", strtotime($jmt['tglahir'])) : '' ?></td>
                       <td><?php echo $jmt['usia']; ?></td>
                       <td><?php echo $jmt['alamat']; ?></td>
                       <td><?php echo $jmt['gender']; ?></td>
@@ -69,9 +66,9 @@
                       <td><?php echo $jmt['keluarga']; ?></td>
                       <td><?php echo $jmt['posisi']; ?></td>
                       <td><?php echo $jmt['tpbaptis']; ?></td>
-                      <td><?php echo $jmt['tglbaptis']; ?></td>
-                      <td><?php echo $jmt['tpbaptis']; ?></td>
-                      <td><?php echo $jmt['tglbaptis']; ?></td>
+                      <td><?php echo $jmt['tglbaptis'] ? date("d M Y", strtotime($jmt['tglbaptis'])) : '' ?></td>
+                      <td><?php echo $jmt['tpsidi']; ?></td>
+                      <td><?php echo $jmt['tglsidi'] ? date("d M Y", strtotime($jmt['tglsidi'])) : '' ?></td>
                       <td><?php echo $jmt['menikah']; ?></td>
                       <td><?php echo $jmt['kwp']; ?></td>
                       <td><?php echo $jmt['pelka']; ?></td>
@@ -123,13 +120,28 @@
     </div>
   </section>
   <?php
-  $query_fams = "SELECT * FROM `tbl_keluarga`";
-  $result_fams = mysqli_query($koneksi, $query_fams);
+  // $query_fams = "SELECT * FROM `tbl_keluarga`";
+  // $result_fams = mysqli_query($koneksi, $query_fams);
 
-  $ls_family = "";
+  // $ls_family = "";
 
-  while ($row_fams = mysqli_fetch_array($result_fams)) {
-    $ls_family = $ls_family . "<option>$row_fams[1]</option>";
+  // while ($row_fams = mysqli_fetch_array($result_fams)) {
+  //   $ls_family = $ls_family . "<option>$row_fams[1]</option>";
+
+  //   $kwp_family = "";
+  // }
+
+  // while ($row_fams = mysqli_fetch_array($result_fams)) {
+  //   $kwp_family = $kwp_family . "<option>$row_fams[2]</option>";
+  // }
+  $query = "SELECT * FROM tbl_keluarga";
+
+  $hasil = mysqli_query($koneksi, $query);
+
+  $data_keluarga = array();
+
+  while ($row = mysqli_fetch_assoc($hasil)) {
+    $data_keluarga[] = $row;
   }
   ?>
 
@@ -155,7 +167,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="tglahir">Tanggal Lahir</label>
-                <input type="text" class="form-control" id="tglahir" name="tglahir" placeholder=" format YYYY/MM/DD">
+                <input type="text" class="form-control" id="tglahir" name="tglahir" placeholder="YYYY-mm-dd">
               </div>
               <div class="form-group col-md-6">
                 <label for="gender">Jenis Kelamin</label>
@@ -186,20 +198,24 @@
                 <label for="tglsidi">Mobile</label>
                 <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Nomor Handphone">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-8">
                 <label for="keluarga">Anggota Keluarga</label>
                 <select id="keluarga" class="form-control" name="keluarga">
-                  <?php echo $ls_family; ?>
+                  <?php foreach ($data_keluarga as $keluarga) : ?>
+                    <option value="<?php echo $keluarga["nama_kel"] ?>">
+                      <?php echo $keluarga["nama_kel"] ?> (<?php echo $keluarga["kwp"] ?>)
+                    </option>
+                  <?php endforeach ?>
                 </select>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label for="posisi">Posisi dalam Keluarga</label>
                 <select class="custom-select" name="posisi">
                   <?php include('list/posisi.php') ?>
                 </select>
               </div>
               <div class="form-group col-md-4">
-                <label for="stat_baptis">Tanggal Baptis</label>
+                <label for="stat_baptis">Status Baptis</label>
                 <select class="custom-select" name="stat_baptis">
                   <option value="Belum">Belum</option>
                   <option value="Sudah">Sudah</option>
@@ -212,7 +228,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="tglbaptis">Tanggal Baptis</label>
-                <input type="text" class="form-control" id="tglbaptis" name="tglbaptis" placeholder=" format YYYY/MM/DD">
+                <input type="text" class="form-control" id="tglbaptis" name="tglbaptis" placeholder="YYYY-mm-dd">
               </div>
               <div class="form-group col-md-4">
                 <label for="stat_sidi">Status Sidi</label>
@@ -228,7 +244,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="tglsidi">Tanggal Sidi</label>
-                <input type="text" class="form-control" id="tglsidi" name="tglsidi" placeholder=" format YYYY/MM/DD">
+                <input type="text" class="form-control" id="tglsidi" name="tglsidi" placeholder="YYYY-mm-dd">
               </div>
               <div class="form-group col-md-4">
                 <label for="menikah">Status Pernikahan</label>

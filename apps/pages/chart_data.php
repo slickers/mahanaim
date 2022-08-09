@@ -2,19 +2,19 @@
 include('../../conf/config.php');
 
 $query = "SELECT 
-            CASE 
-                WHEN umur <= 5 THEN 'balita' 
-                WHEN umur BETWEEN 6 and 12 THEN 'anak-anak' 
-                WHEN umur BETWEEN 13 and 16 THEN 'Remaja' 
-                WHEN umur BETWEEN 17 and 25 THEN 'Pemuda' 
-                WHEN umur BETWEEN 26 and 64 THEN 'Orang Tua' 
-                WHEN umur >= 65 THEN 'Lanjut Usia' 
-                WHEN umur IS NULL THEN '(NULL)' 
-            END as kelompok, 
-            COUNT(*) AS jumlah 
-            FROM (select id_jmt, nama, tglahir, TIMESTAMPDIFF(YEAR, tglahir, CURDATE()) AS umur from tbl_jemaat WHERE stat_jmt = 'Aktif') as data_usia 
-            GROUP BY kelompok 
-            ORDER BY kelompok;
+CASE 
+    WHEN umur <= 5 THEN 'Balita(0-5)' 
+    WHEN umur BETWEEN 6 and 12 THEN 'Anak-anak(6-12)' 
+    WHEN umur BETWEEN 13 and 16 THEN 'Remaja(13-16)' 
+    WHEN umur BETWEEN 17 and 25 THEN 'Pemuda(17-25)' 
+    WHEN umur BETWEEN 26 and 64 THEN 'Dewasa(26-64)' 
+    WHEN umur >= 65 THEN 'Lansia(>65)' 
+    WHEN umur IS NULL THEN '(NULL)' 
+END as kelompok, 
+COUNT(*) AS jumlah 
+FROM (select id_jmt, nama, tglahir, TIMESTAMPDIFF(YEAR, tglahir, CURDATE()) AS umur from tbl_jemaat WHERE stat_jmt = 'Aktif') as data_usia 
+GROUP BY kelompok 
+ORDER BY FIELD(kelompok,'Balita(0-5)','Anak-anak(6-12)','Remaja(13-16)','Pemuda(17-25)','Dewasa(26-64)','Lansia(>65)');
             ";
 //storing the result of the executed query
 $result = $koneksi->query($query);

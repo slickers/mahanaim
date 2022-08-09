@@ -35,13 +35,19 @@
                           <p class="text-light">Data Majelis</p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="index.php?page=kartu" class="nav-link">
+                          <i class="far fa-address-card nav-icon text-light"></i>
+                          <p class="text-light">Kartu Keluarga</p>
+                      </a>
                   </li>
-                  <li class="nav-item" style="background-color: maroon" ;>
+                  </li>
+                  <!-- <li class="nav-item" style="background-color: maroon" ;>
                       <a href="logout.php" class="nav-link">
                           <i class="nav-icon fas fa-power-off text-light"></i>
                           <p class="text-light">Log Out</p>
                       </a>
-                  </li>
+                  </li> -->
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

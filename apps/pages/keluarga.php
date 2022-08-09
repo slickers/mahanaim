@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">CMS | Mahanaim</h1>
+          <h1 class="m-0">Database Keluarga</h1>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -18,9 +18,6 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title"><b>Database Keluarga</b></h3>
-            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped" cellspacing="0" width="100%">
@@ -35,6 +32,7 @@
                     <th>Propinsi</th>
                     <th>Kode Pos</th>
                     <th>Nomor Telepon</th>
+                    <th>Jumlah Anggota</th>
                     <th>Status Keluarga</th>
                     <th>Info Keluarga</th>
                     <th>Kelola</th>
@@ -52,10 +50,11 @@
                       <td><?php echo $kel['nama_kel']; ?></td>
                       <td><?php echo $kel['kwp']; ?></td>
                       <td><?php echo $kel['kepala']; ?></td>
-                      <td><?php echo $kel['tglnikah']; ?></td>
+                      <td><?php echo $kel['tglnikah'] ? date("d M Y", strtotime($kel['tglnikah'])) : '' ?></td>
                       <td><?php echo $kel['alamat']; ?></td>
                       <td><?php echo $kel['propinsi']; ?></td>
                       <td><?php echo $kel['kodepos']; ?></td>
+                      <td><?php echo $kel['telepon']; ?></td>
                       <td><?php echo $kel['telepon']; ?></td>
                       <td><?php echo $kel['stat_kel']; ?></td>
                       <td><?php echo $kel['info_kel']; ?></td>
@@ -128,7 +127,6 @@
               <div class="form-group col-md-6">
                 <label for="kwp">Pelayanan Wilayah</label>
                 <select class="custom-select" name="kwp">
-                  <option selected>KWP-1</option>
                   <?php include('list/kwp.php') ?>
                 </select>
               </div>
@@ -147,7 +145,6 @@
               <div class="form-group col-md-3">
                 <label for="propinsi">Propinsi</label>
                 <select class="custom-select" name="propinsi">
-                  <option selected>DKI Jakarta</option>
                   <?php include('list/propinsi.php') ?>
                 </select>
               </div>
