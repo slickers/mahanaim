@@ -1,5 +1,5 @@
 <?php
-$koneksi = mysqli_connect('remotemysql.com', 'ipn5W0Uiqc', 'O0lRBL8H7Z', 'ipn5W0Uiqc');
+$koneksi = mysqli_connect('localhost', 'root', 'password', 'cms_db');
 
 if (!$koneksi) {
     die("Koneksi Gagal:" . mysqli_connect_error());
