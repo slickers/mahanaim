@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('public/header.php') ?>;
-<?php include('conf/config.php') ?>;
+<?php include('public/header.php') ?>
+<?php include('conf/config.php') ?>
 
 
 <body class="hold-transition sidebar-mini layout-fixed">

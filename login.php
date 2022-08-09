@@ -67,9 +67,28 @@
           </div>
         </form>
       </div>
+
+
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
+  </div>
+  <!-- <div aria-live="assertive" aria-atomic="true" style="position: absolute"> -->
+
+  <div class="toast" data-animation="true" data-delay="5000" data-autohide="true" style="position: absolute; top: 1000; right: 1000;">
+    <div class="toast-header">
+      <span class="rounded mr-2 bg-danger" style="width: 300px;height: 20px"></span>
+      <strong class="mr-auto">Perhatian</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body" style="height: 120px">
+      Applikasi ini mencatat informasi kredensial dari jemaat, diharapkan tanggung jawabnya saat menggunakan applikasi ini.
+      <br />
+    </div>
+  </div>
+
   </div>
   <!-- /.login-box -->
   <!-- Zero.js -->
@@ -82,7 +101,9 @@
   <script src="apps/dist/js/adminlte.min.js"></script>
   <!-- SweetAlert2 -->
   <script src="apps/plugins/sweetalert2/sweetalert2.min.js"></script>
-
+  <script>
+    $('.toast').toast('show');
+  </script>
 
 </body>
 <?php
